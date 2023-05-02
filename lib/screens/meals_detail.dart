@@ -8,15 +8,22 @@ class MealsDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title)),
-      body: Center(
-        child: FadeInImage(
-            fit: BoxFit.cover,
-            height: 200,
-            width: double.infinity,
-            placeholder: MemoryImage(kTransparentImage),
-            image: NetworkImage(meal.imageUrl)),
-      ),
-    );
+        appBar: AppBar(title: Text(meal.title)),
+        body: Column(
+          children: [
+            Image.network(
+              meal.imageUrl,
+              height: 300,
+              width: double.infinity,
+            ),
+            Text('Ingredients',
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground)),
+            for (final ingredients in meal.ingredients)
+              Text(ingredients,
+                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                      color: Theme.of(context).colorScheme.onBackground)),
+          ],
+        ));
   }
 }
