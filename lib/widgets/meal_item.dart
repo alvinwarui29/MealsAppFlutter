@@ -8,11 +8,17 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.all(9),
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       child: InkWell(
         onTap: () {},
         child: Stack(
           children: [
             FadeInImage(
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
                 placeholder: MemoryImage(kTransparentImage),
                 image: NetworkImage(meal.imageUrl)),
             Positioned(
