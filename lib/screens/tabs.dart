@@ -47,6 +47,14 @@ class _TabsScreenState extends State<TabsScreen> {
     Widget activeScreen = CategoriesScreen(
       onToggleFavorite: _toggleFavoriteMeals,
     );
+    void _onItemSelected(String identifier) {
+      if (identifier == 'filters') {
+        Navigator.of(context).pop();
+      } else {
+        Navigator.of(context).pop();
+      }
+    }
+
     var title = 'Categories';
 
     if (_selectedPageIndex == 1) {
@@ -60,7 +68,7 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: const Text('Dynamic Data'),
       ),
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(onSelectItem: _onItemSelected),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedPageIndex,
