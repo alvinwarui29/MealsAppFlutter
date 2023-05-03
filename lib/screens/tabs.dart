@@ -48,11 +48,11 @@ class _TabsScreenState extends State<TabsScreen> {
     Widget activeScreen = CategoriesScreen(
       onToggleFavorite: _toggleFavoriteMeals,
     );
-    void _onItemSelected(String identifier) {
+    void _onItemSelected(String identifier) async {
       Navigator.of(context).pop();
       if (identifier == 'filters') {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (cnt) => FilterScreen()));
+        final result = await Navigator.of(context).push<Map<Filter, bool>>(
+            MaterialPageRoute(builder: (cnt) => FilterScreen()));
       }
     }
 
