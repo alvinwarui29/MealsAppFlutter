@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/screens/categories.dart';
+import 'package:meals/screens/filter_screen.dart';
 import 'package:meals/screens/meals.dart';
 import 'package:meals/model/meal.dart';
 import 'package:meals/widgets/main_drawer.dart';
@@ -48,10 +49,10 @@ class _TabsScreenState extends State<TabsScreen> {
       onToggleFavorite: _toggleFavoriteMeals,
     );
     void _onItemSelected(String identifier) {
+      Navigator.of(context).pop();
       if (identifier == 'filters') {
-        Navigator.of(context).pop();
-      } else {
-        Navigator.of(context).pop();
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (cnt) => FilterScreen()));
       }
     }
 
