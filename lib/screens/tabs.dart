@@ -22,7 +22,7 @@ class _TabsScreenState extends State<TabsScreen> {
     var title = 'Categories';
 
     if (_selectedPageIndex == 1) {
-      activeScreen = const MealsScreen(title: 'Selected page', meal: []);
+      activeScreen = const MealsScreen(meal: []);
     }
 
     return Scaffold(
